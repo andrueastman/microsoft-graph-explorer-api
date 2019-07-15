@@ -54,6 +54,6 @@ steps:
   inputs:
     script: |
       cd $(snippetInjectionPath)/ApiDoctor.Console/bin/Release/
-      ls
+      apidoc.exe
 
     
