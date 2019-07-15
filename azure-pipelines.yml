@@ -3,17 +3,36 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- master
+trigger: none
+pr: none
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-2019'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
+  graphDocsBranch: 'master'
+  apiDoctorPath: '/ApiDoctor.Console/bin/Release/apidoc.exe'
+  graphDocsPath: 'GraphDocs'
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+- task: PowerShell@1
+  displayName: "Clone Microsoft Graph Docs"
+  inputs:
+    scriptType: inlineScript
+    inlineScript: "git clone -b '$(graphDocsBranch)' '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+- task: PowerShell@1
+  displayName: "Clone Snippet injection tool"
+  inputs:
+    scriptType: inlineScript
+    inlineScript: "git clone -b '$(graphDocsBranch)' '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
+
+- task: PowerShell@1
+  displayName: "print working directory"
+  inputs:
+    scriptType: inlineScript
+    inlineScript: "pwd"
