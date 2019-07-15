@@ -52,4 +52,4 @@ steps:
   displayName: "Run snippet injection against docs"
   inputs:
     scriptType: inlineScript
-    inlineScript: "'$(snippetInjectionPath)'/ApiDoctor.Console/bin/Release/apidoc.exe'"
+    inlineScript: "$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe'"
