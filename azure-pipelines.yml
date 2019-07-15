@@ -53,5 +53,5 @@ steps:
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
-      `$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe`
+      /ApiDoctor/ApiDoctor.Console/bin/Release/apidoc.exe
       
