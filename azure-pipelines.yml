@@ -51,4 +51,4 @@ steps:
 - task: CmdLine@2
   displayName: "Run snippet injection against docs"
   inputs:
-    script: "$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe"
+    script: "'$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe'"
