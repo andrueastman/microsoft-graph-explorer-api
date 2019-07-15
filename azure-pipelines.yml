@@ -53,8 +53,7 @@ steps:
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
-      "copy '$(executable)' ."
+      "cd ApiDoctor"
       ls
-      apidoc.exe
 
     
