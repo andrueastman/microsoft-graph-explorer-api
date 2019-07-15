@@ -10,7 +10,6 @@ pool:
   vmImage: 'windows-2019'
 
 variables:
-  solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
@@ -19,6 +18,7 @@ variables:
   snippetInjectionBranch: 'rework-snippet-injection'
   graphDocsPath: 'GraphDocs'
   snippetInjectionPath: 'ApiDoctor'
+  solution: '$(snippetInjectionPath)/**/*.sln'
 
 steps:
 - task: PowerShell@1
