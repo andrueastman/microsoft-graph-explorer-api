@@ -15,8 +15,10 @@ variables:
   buildConfiguration: 'Release'
   graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
   graphDocsBranch: 'master'
-  apiDoctorPath: '/ApiDoctor.Console/bin/Release/apidoc.exe'
+  snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
+  snippetInjectionBranch: 'rework-snippet-injection'
   graphDocsPath: 'GraphDocs'
+  snippetInjectionPath: 'ApiDoctor'
 
 steps:
 - task: PowerShell@1
@@ -29,10 +31,10 @@ steps:
   displayName: "Clone Snippet injection tool"
   inputs:
     scriptType: inlineScript
-    inlineScript: "git clone -b '$(graphDocsBranch)' '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
+    inlineScript: "git clone -b '$(snippetInjectionBranch)' '$(snippetInjectionRepo)' --recurse-submodules '$(snippetInjectionPath)' 2>&1 | Write-Host"
 
 - task: PowerShell@1
   displayName: "print working directory"
   inputs:
     scriptType: inlineScript
-    inlineScript: "pwd"
+    inlineScript: "ls -la"
