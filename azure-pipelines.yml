@@ -52,4 +52,8 @@ steps:
 - task: CmdLine@2
   displayName: "Run snippet injection against docs"
   inputs:
-    script: '$(executable)'
+    script: |
+      "copy '$(executable)' ."
+      apidoc.exe
+
+    
