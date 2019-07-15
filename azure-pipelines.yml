@@ -49,7 +49,7 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: PowerShell@2
+- task: PowerShell@1
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
