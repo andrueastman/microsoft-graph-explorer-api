@@ -53,7 +53,7 @@ steps:
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
-      cd ApiDoctor
+      cd $(snippetInjectionPath)/ApiDoctor.Console/bin/Release/
       ls
 
     
