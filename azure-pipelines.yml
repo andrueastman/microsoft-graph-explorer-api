@@ -10,23 +10,21 @@ pool:
   vmImage: 'windows-2019'
 
 variables:
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
   graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
-  graphDocsBranch: 'master'
   snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
   snippetInjectionBranch: 'rework-snippet-injection'
   graphDocsPath: 'GraphDocs'
   snippetInjectionPath: 'ApiDoctor'
   solution: '$(snippetInjectionPath)/**/*.sln'
-  executable: '$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe'
+  snippetApiUrl: 'https://graphexplorerapi.azurewebsites.net/api/GraphExplorerSnippets'
+  snippetLanguages: 'C#,Javascript,Objective-C,Java'
 
 steps:
 - task: PowerShell@1
   displayName: "Clone Microsoft Graph Docs"
   inputs:
     scriptType: inlineScript
-    inlineScript: "git clone -b '$(graphDocsBranch)' '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
+    inlineScript: "git clone -b master '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
 
 - task: PowerShell@1
   displayName: "Clone Snippet injection tool"
@@ -46,12 +44,12 @@ steps:
   displayName: "Build Source for Snippets Injection Tool"
   inputs:
     solution: '$(solution)'
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
+    platform: 'Any CPU'
+    configuration: 'Release'
 
 - task: CmdLine@2
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
-      ApiDoctor\\ApiDoctor.Console\\bin\\Release\\apidoc.exe
+      $(snippetInjectionPath)\\ApiDoctor.Console\\bin\\Release\\apidoc.exe generate-snippets --ignore-warnings --path '$(graphDocsBranch)' --snippet-api-url '$(snippetApiUrl)' --lang '$(snippetLanguages)' --github-token XXXX
       
