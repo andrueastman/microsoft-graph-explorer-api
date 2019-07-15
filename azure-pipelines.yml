@@ -49,11 +49,12 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: CmdLine@2
+- task: PowerShell@2
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
       "copy '$(executable)' ."
+      ls
       apidoc.exe
 
     
