@@ -37,4 +37,4 @@ steps:
   displayName: "print working directory"
   inputs:
     scriptType: inlineScript
-    inlineScript: "ls -la"
+    inlineScript: "ls"
