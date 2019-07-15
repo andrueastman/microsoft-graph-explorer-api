@@ -19,6 +19,7 @@ variables:
   graphDocsPath: 'GraphDocs'
   snippetInjectionPath: 'ApiDoctor'
   solution: '$(snippetInjectionPath)/**/*.sln'
+  executable: '$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe'
 
 steps:
 - task: PowerShell@1
@@ -51,4 +52,4 @@ steps:
 - task: CmdLine@2
   displayName: "Run snippet injection against docs"
   inputs:
-    script: '$(snippetInjectionPath)/ApiDoctor.Console/bin/Release/apidoc.exe'
+    script: '$(executable)'
