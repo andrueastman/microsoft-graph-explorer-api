@@ -51,5 +51,5 @@ steps:
   displayName: "Run snippet injection against docs"
   inputs:
     script: |
-      $(snippetInjectionPath)\\ApiDoctor.Console\\bin\\Release\\apidoc.exe generate-snippets --ignore-warnings --path $(graphDocsPath) --snippet-api-url '$(snippetApiUrl)' --lang '$(snippetLanguages)' --github-token XXXX --git-path 'C:\Program Files\Git\bin\git.exe'
+      $(snippetInjectionPath)\\ApiDoctor.Console\\bin\\Release\\apidoc.exe generate-snippets --ignore-warnings --path $(graphDocsPath) --snippet-api-url '$(snippetApiUrl)' --lang '$(snippetLanguages)' --github-token XXXX --git-path "C:\Program Files\Git\bin\git.exe"
       
