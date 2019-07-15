@@ -37,14 +37,19 @@ steps:
   displayName: "Install Nuget.exe"
 
 - task: NuGetCommand@2
-  displayName: "Restore Packages for '$(solution)'"
+  displayName: "Restore Packages for  Snippets Injection Tool"
   inputs:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
-  displayName: "Build Solution for '$(solution)'' in '$(buildConfiguration)'"
+  displayName: "Build Source for Snippets Injection Tool"
   inputs:
     solution: '$(solution)'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
+- task: PowerShell@1
+  displayName: "Run snippet injection against docs"
+  inputs:
+    scriptType: inlineScript
+    inlineScript: "'$(snippetInjectionPath)'/ApiDoctor.Console/bin/Release/apidoc.exe'"
