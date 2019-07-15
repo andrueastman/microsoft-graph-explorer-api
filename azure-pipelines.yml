@@ -33,8 +33,18 @@ steps:
     scriptType: inlineScript
     inlineScript: "git clone -b '$(snippetInjectionBranch)' '$(snippetInjectionRepo)' --recurse-submodules '$(snippetInjectionPath)' 2>&1 | Write-Host"
 
-- task: PowerShell@1
-  displayName: "print working directory"
+- task: NuGetToolInstaller@0
+  displayName: "Install Nuget.exe"
+
+- task: NuGetCommand@2
+  displayName: "Restore Packages for '$(solution)'"
   inputs:
-    scriptType: inlineScript
-    inlineScript: "ls"
+    restoreSolution: '$(solution)'
+
+- task: VSBuild@1
+  displayName: "Build Solution for '$(solution)'' in '$(buildConfiguration)'"
+  inputs:
+    solution: '$(solution)'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
