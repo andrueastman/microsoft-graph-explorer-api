@@ -12,7 +12,7 @@ pool:
 variables:
   graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
   snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
-  snippetInjectionBranch: 'rework-snippet-injection'
+  snippetInjectionBranch: 'scheduled-snippets-injection'
   graphDocsPath: 'GraphDocs'
   snippetInjectionPath: 'ApiDoctor'
   solution: '$(snippetInjectionPath)/**/*.sln'
