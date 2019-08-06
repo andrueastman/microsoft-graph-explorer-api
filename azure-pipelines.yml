@@ -6,11 +6,11 @@
 trigger: none
 pr: none
 schedules:
-- cron: "0 12 * * 2"
+- cron: "30 12 * * 2"
   displayName: Weekly Tuesday snippets updates
   branches:
     include:
-    - master
+    - dev
   always: true
 
 pool:
