@@ -8,6 +8,9 @@ pr: none
 schedules:
 - cron: "0 12 * * 2"
   displayName: Weekly Tuesday snippets updates
+  branches:
+    include:
+    - master
   always: true
 
 pool:
