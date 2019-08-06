@@ -5,6 +5,10 @@
 
 trigger: none
 pr: none
+schedules:
+- cron: "0 12 * * 2"
+  displayName: Weekly Tuesday snippets updates
+  always: true
 
 pool:
   vmImage: 'windows-2019'
@@ -20,6 +24,8 @@ variables:
   snippetLanguages: 'C#,Javascript,Objective-C,Java'
 
 steps:
+- checkout: none  # Don't sync sources since its just an automation task.
+
 - task: PowerShell@1
   displayName: "Clone Microsoft Graph Docs"
   inputs:
