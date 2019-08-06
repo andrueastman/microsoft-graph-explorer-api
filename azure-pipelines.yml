@@ -10,7 +10,7 @@ pool:
   vmImage: 'windows-2019'
 
 variables:
-  graphDocsRepo: 'https://github.com/microsoftgraph/microsoft-graph-docs.git'
+  graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
   snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
   snippetInjectionBranch: 'scheduled-snippets-injection'
   graphDocsPath: 'GraphDocs'
@@ -54,5 +54,4 @@ steps:
       cd $(graphDocsPath)
       git config --global user.name "Eastman"
       git config --global user.email "v-anomon@microsoft.com"
-      ..\\$(snippetInjectionPath)\\ApiDoctor.Console\\bin\\Release\\apidoc.exe generate-snippets --ignore-warnings --path . --snippet-api-url $(snippetApiUrl) --lang $(snippetLanguages) --github-token $(githubToken) --git-path "C:\Program Files\Git\bin\git.exe"
-      
+      ..\\$(snippetInjectionPath)\\ApiDoctor.Console\\bin\\Release\\apidoc.exe generate-snippets --ignore-warnings --path . --snippet-api-url $(snippetApiUrl) --lang $(snippetLanguages) --github-token $(githubToken) --git-path "C:\Program Files\Git\bin\git.exe" --commit-message "Scheduled snippets update" --pull-request-title "Snippets Update"
