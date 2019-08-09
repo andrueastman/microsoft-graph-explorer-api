@@ -24,7 +24,7 @@ variables:
   snippetInjectionPath: 'ApiDoctor'
   solution: '$(snippetInjectionPath)/**/*.sln'
   snippetApiUrl: 'https://graphexplorerapi.azurewebsites.net/api/GraphExplorerSnippets'
-  snippetLanguages: 'C#,Javascript,Objective-C,Java'
+  snippetLanguages: 'C#,JavaScript,Objective-C,Java'
 
 steps:
 - checkout: none  # Don't sync sources since its just an automation task.
