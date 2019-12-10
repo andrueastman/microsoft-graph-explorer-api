@@ -21,7 +21,7 @@ variables:
   snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
   snippetInjectionBranch: 'scheduled-snippets-injection'
   graphDocsPath: 'GraphDocs'
-  graphDocsBranch: 'ananyav1'
+  graphDocsBranch: 'master'
   snippetInjectionPath: 'ApiDoctor'
   solution: '$(snippetInjectionPath)/**/*.sln'
   snippetApiUrl: 'https://graphexplorerapi.azurewebsites.net/api/GraphExplorerSnippets'
