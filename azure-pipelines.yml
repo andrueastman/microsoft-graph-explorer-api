@@ -21,6 +21,7 @@ variables:
   snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
   snippetInjectionBranch: 'scheduled-snippets-injection'
   graphDocsPath: 'GraphDocs'
+  graphDocsBranch: 'ananyav1'
   snippetInjectionPath: 'ApiDoctor'
   solution: '$(snippetInjectionPath)/**/*.sln'
   snippetApiUrl: 'https://graphexplorerapi.azurewebsites.net/api/GraphExplorerSnippets'
@@ -33,7 +34,7 @@ steps:
   displayName: "Clone Microsoft Graph Docs"
   inputs:
     scriptType: inlineScript
-    inlineScript: "git clone -b master '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
+    inlineScript: "git clone -b '$(graphDocsBranch)' '$(graphDocsRepo)' --recurse-submodules '$(graphDocsPath)' 2>&1 | Write-Host"
 
 - task: PowerShell@1
   displayName: "Clone Snippet injection tool"
