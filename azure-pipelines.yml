@@ -42,7 +42,7 @@ steps:
     scriptType: inlineScript
     inlineScript: "git clone -b '$(snippetInjectionBranch)' '$(snippetInjectionRepo)' --recurse-submodules '$(snippetInjectionPath)' 2>&1 | Write-Host"
 
-- task: NuGetToolInstaller@0
+- task: NuGetToolInstaller@1
   displayName: "Install Nuget.exe"
 
 - task: NuGetCommand@2
