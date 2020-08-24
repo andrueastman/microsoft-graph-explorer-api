@@ -18,8 +18,8 @@ pool:
 
 variables:
   graphDocsRepo: 'https://github.com/andrueastman/microsoft-graph-docs.git'
-  snippetInjectionRepo: 'https://github.com/andrueastman/apidoctor.git'
-  snippetInjectionBranch: 'scheduled-snippets-injection'
+  snippetInjectionRepo: 'https://github.com/OneDrive/apidoctor.git'
+  snippetInjectionBranch: 'generate-snippets'
   graphDocsPath: 'GraphDocs'
   graphDocsBranch: 'master'
   snippetInjectionPath: 'ApiDoctor'
